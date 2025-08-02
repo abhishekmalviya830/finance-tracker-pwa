@@ -1,0 +1,98 @@
+# Sample Financial SMS Messages for Testing
+# Copy and paste these into the manual SMS upload feature
+
+# HDFC Bank Debit Card Transaction
+Rs. 1,250.00 debited from A/c XX1234 on 31-07-2025 at 14:30 for SWIGGY. Avl Bal: Rs. 45,678.90
+
+# ICICI Bank Credit Card Payment
+Rs. 5,000.00 credited to your ICICI Credit Card XX5678 on 30-07-2025. Thank you for your payment.
+
+# UPI Transaction - Food Delivery
+UPI: Rs. 899.00 paid to ZOMATO via UPI Ref: 123456789. A/c XX9012 debited. Balance: Rs. 12,345.67
+
+# ATM Withdrawal
+Rs. 2,000.00 withdrawn from A/c XX3456 at HDFC ATM on 29-07-2025 at 16:45. Avl Bal: Rs. 23,456.78
+
+# Online Shopping - Amazon
+Rs. 1,599.00 debited from A/c XX7890 for AMAZON PURCHASE on 28-07-2025. Balance: Rs. 34,567.89
+
+# NEFT Transfer Received
+Rs. 10,000.00 received in A/c XX2345 via NEFT from JOHN DOE on 27-07-2025. Balance: Rs. 56,789.01
+
+# IMPS Transfer Sent
+Rs. 500.00 transferred to JANE SMITH via IMPS Ref: 987654321 on 26-07-2025. A/c XX6789 debited.
+
+# Restaurant Payment
+Rs. 750.00 paid to DOMINOS via POS on 25-07-2025. Card XX0123 debited. Thank you for dining with us.
+
+# Fuel Payment
+Rs. 1,800.00 paid to INDIAN OIL via POS on 24-07-2025. Card XX4567 debited. Fuel: 25L Petrol.
+
+# Utility Bill Payment
+Rs. 2,500.00 paid to BSNL BILL via UPI on 23-07-2025. A/c XX8901 debited. Bill No: BSNL123456.
+
+# Movie Ticket Booking
+Rs. 600.00 paid to BOOKMYSHOW via UPI on 22-07-2025. A/c XX2345 debited. Movie: Avengers.
+
+# Grocery Shopping
+Rs. 1,200.00 debited from A/c XX6789 for BIG BASKET on 21-07-2025. Balance: Rs. 15,678.90
+
+# Cab Ride Payment
+Rs. 350.00 paid to UBER via UPI on 20-07-2025. A/c XX0123 debited. Trip: Airport to Home.
+
+# Insurance Premium
+Rs. 3,000.00 debited from A/c XX4567 for LIC PREMIUM on 19-07-2025. Policy: LIC123456.
+
+# Mobile Recharge
+Rs. 199.00 paid to AIRTEL RECHARGE via UPI on 18-07-2025. A/c XX8901 debited. Plan: 28 days.
+
+# Salary Credit
+Rs. 50,000.00 credited to A/c XX2345 via NEFT from COMPANY XYZ on 17-07-2025. Balance: Rs. 67,890.12
+
+# Rent Payment
+Rs. 15,000.00 transferred to LANDLORD via IMPS on 16-07-2025. A/c XX6789 debited. Rent: July 2025.
+
+# Coffee Shop
+Rs. 120.00 paid to STARBUCKS via POS on 15-07-2025. Card XX0123 debited. Thank you for visiting.
+
+# Online Course Payment
+Rs. 2,999.00 debited from A/c XX4567 for UDEMY COURSE on 14-07-2025. Course: Flutter Development.
+
+# Gym Membership
+Rs. 1,500.00 paid to FITNESS FIRST via UPI on 13-07-2025. A/c XX8901 debited. Membership: Monthly.
+
+# Pharmacy Purchase
+Rs. 450.00 paid to APOLLO PHARMACY via POS on 12-07-2025. Card XX2345 debited. Medicine purchase.
+
+# Parking Fee
+Rs. 50.00 paid to MALL PARKING via UPI on 11-07-2025. A/c XX6789 debited. Duration: 2 hours.
+
+# Book Purchase
+Rs. 299.00 debited from A/c XX0123 for AMAZON KINDLE on 10-07-2025. Book: Flutter Cookbook.
+
+# Music Subscription
+Rs. 99.00 paid to SPOTIFY via UPI on 09-07-2025. A/c XX4567 debited. Plan: Premium Monthly.
+
+# Clothing Purchase
+Rs. 1,800.00 paid to MYNTRA via UPI on 08-07-2025. A/c XX8901 debited. Order: Summer Collection.
+
+# Electronics Store
+Rs. 25,000.00 debited from A/c XX2345 for CROMA on 07-07-2025. Balance: Rs. 32,456.78
+
+# Fast Food
+Rs. 180.00 paid to MCDONALDS via POS on 06-07-2025. Card XX6789 debited. Order: Combo Meal.
+
+# Bank Charges
+Rs. 100.00 debited from A/c XX0123 for BANK CHARGES on 05-07-2025. Balance: Rs. 18,456.78
+
+# Investment
+Rs. 5,000.00 transferred to MUTUAL FUND via IMPS on 04-07-2025. A/c XX4567 debited. Fund: Index Fund.
+
+# Gift Card Purchase
+Rs. 1,000.00 debited from A/c XX8901 for AMAZON GIFT CARD on 03-07-2025. Balance: Rs. 22,456.78
+
+# Petrol Station
+Rs. 1,500.00 paid to SHELL via POS on 02-07-2025. Card XX2345 debited. Fuel: 20L Diesel.
+
+# Online Gaming
+Rs. 299.00 paid to STEAM via UPI on 01-07-2025. A/c XX6789 debited. Game: Cyberpunk 2077. 

@@ -1,0 +1,45 @@
+# Sample SMS Messages for Finance Tracker Testing
+# This file contains sample SMS messages that simulate real bank transaction notifications
+# You can upload this file through the Flutter app to test SMS parsing functionality
+
+# Format: timestamp|sender|message_text
+
+2025-01-30T08:30:00|HDFC|Rs.50000 credited to A/c XX1234 on 30-01-2025 at 08:30 AM for Salary credit. Avl Bal: Rs.75,000
+
+2025-01-30T09:15:00|HDFC|Rs.450 debited from A/c XX1234 on 30-01-2025 at 09:15 AM for Zomato payment. Avl Bal: Rs.74,550
+
+2025-01-30T10:00:00|HDFC|Rs.250 debited from A/c XX1234 on 30-01-2025 at 10:00 AM for Uber ride. Avl Bal: Rs.74,300
+
+2025-01-30T11:30:00|HDFC|Rs.1200 debited from A/c XX1234 on 30-01-2025 at 11:30 AM for Amazon purchase. Avl Bal: Rs.73,100
+
+2025-01-30T12:45:00|HDFC|Rs.499 debited from A/c XX1234 on 30-01-2025 at 12:45 PM for Netflix subscription. Avl Bal: Rs.72,601
+
+2025-01-30T14:20:00|HDFC|Rs.800 debited from A/c XX1234 on 30-01-2025 at 02:20 PM for Starbucks payment. Avl Bal: Rs.71,801
+
+2025-01-30T15:30:00|HDFC|Rs.1500 debited from A/c XX1234 on 30-01-2025 at 03:30 PM for Petrol pump. Avl Bal: Rs.70,301
+
+2025-01-30T16:45:00|HDFC|Rs.2000 debited from A/c XX1234 on 30-01-2025 at 04:45 PM for Apollo Hospital. Avl Bal: Rs.68,301
+
+2025-01-30T18:00:00|HDFC|Rs.320 debited from A/c XX1234 on 30-01-2025 at 06:00 PM for Swiggy order. Avl Bal: Rs.67,981
+
+2025-01-30T19:30:00|HDFC|Rs.180 debited from A/c XX1234 on 30-01-2025 at 07:30 PM for Ola ride. Avl Bal: Rs.67,801
+
+2025-01-30T20:15:00|HDFC|Rs.600 debited from A/c XX1234 on 30-01-2025 at 08:15 PM for Myntra purchase. Avl Bal: Rs.67,201
+
+2025-01-30T21:00:00|HDFC|Rs.119 debited from A/c XX1234 on 30-01-2025 at 09:00 PM for Spotify premium. Avl Bal: Rs.67,082
+
+2025-01-31T09:00:00|HDFC|Rs.3000 debited from A/c XX1234 on 31-01-2025 at 09:00 AM for Online course. Avl Bal: Rs.64,082
+
+2025-01-31T10:30:00|HDFC|Rs.350 debited from A/c XX1234 on 31-01-2025 at 10:30 AM for Pharmacy. Avl Bal: Rs.63,732
+
+2025-01-31T12:00:00|HDFC|Rs.400 debited from A/c XX1234 on 31-01-2025 at 12:00 PM for Movie tickets. Avl Bal: Rs.63,332
+
+2025-01-31T14:00:00|HDFC|Rs.8000 credited to A/c XX1234 on 31-01-2025 at 02:00 PM for Freelance payment. Avl Bal: Rs.71,332
+
+2025-01-31T15:30:00|HDFC|Rs.1500 debited from A/c XX1234 on 31-01-2025 at 03:30 PM for Dental clinic. Avl Bal: Rs.69,832
+
+2025-01-31T17:00:00|HDFC|Rs.500 debited from A/c XX1234 on 31-01-2025 at 05:00 PM for Book store. Avl Bal: Rs.69,332
+
+2025-01-31T18:30:00|HDFC|Rs.800 debited from A/c XX1234 on 31-01-2025 at 06:30 PM for Workshop fee. Avl Bal: Rs.68,532
+
+2025-01-31T20:00:00|HDFC|Rs.15000 credited to A/c XX1234 on 31-01-2025 at 08:00 PM for Bonus payment. Avl Bal: Rs.83,532 

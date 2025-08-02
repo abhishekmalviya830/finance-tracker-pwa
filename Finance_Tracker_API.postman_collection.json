@@ -1,0 +1,470 @@
+{
+	"info": {
+		"_postman_id": "finance-tracker-api",
+		"name": "Finance Tracker API",
+		"description": "Complete API collection for Finance Tracker application with authentication, transactions, SMS processing, and dashboard analytics.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "User Registration",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"password123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/signup",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    const response = pm.response.json();",
+									"    pm.environment.set('auth_token', response.token);",
+									"    console.log('Token saved:', response.token);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					]
+				},
+				{
+					"name": "User Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"password123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    const response = pm.response.json();",
+									"    pm.environment.set('auth_token', response.token);",
+									"    console.log('Token saved:', response.token);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "Create Manual Transaction",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"origin\": \"MANUAL\",\n  \"amount\": 150.75,\n  \"currency\": \"INR\",\n  \"merchant\": \"Coffee Shop\",\n  \"category\": \"Food & Beverages\",\n  \"transactionTime\": \"2024-07-30T10:30:00\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/transactions",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"transactions"
+							]
+						}
+					}
+				},
+				{
+					"name": "Get All Transactions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/transactions",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"transactions"
+							]
+						}
+					}
+				},
+				{
+					"name": "Process SMS Batch (JSON)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"messages\": [\n    {\n      \"text\": \"Rs.100 debited from A/c XX1234 on 30-07-24 at 10:30 AM. Avl Bal: Rs.5000.00\",\n      \"timestamp\": \"2024-07-30T10:30:00\"\n    },\n    {\n      \"text\": \"Rs.50 credited to A/c XX1234 on 30-07-24 at 11:00 AM. Avl Bal: Rs.5050.00\",\n      \"timestamp\": \"2024-07-30T11:00:00\"\n    },\n    {\n      \"text\": \"Rs.200 debited from A/c XX1234 on 30-07-24 at 12:00 PM. Avl Bal: Rs.4850.00\",\n      \"timestamp\": \"2024-07-30T12:00:00\"\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/transactions/sms/batch",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"transactions",
+								"sms",
+								"batch"
+							]
+						}
+					}
+				},
+				{
+					"name": "Upload SMS Text File",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "sample_sms.txt"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/sms/upload/text",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"sms",
+								"upload",
+								"text"
+							]
+						}
+					}
+				},
+				{
+					"name": "Upload SMS CSV File",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "sample_sms.csv"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/sms/upload/csv",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"sms",
+								"upload",
+								"csv"
+							]
+						}
+					}
+				},
+				{
+					"name": "Upload WhatsApp Chat",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "sample_whatsapp_chat.txt"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/sms/upload/whatsapp",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"sms",
+								"upload",
+								"whatsapp"
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Dashboard Analytics",
+			"item": [
+				{
+					"name": "Get Monthly Statistics",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/dashboard/stats/monthly?year=2024&month=7",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"dashboard",
+								"stats",
+								"monthly"
+							],
+							"query": [
+								{
+									"key": "year",
+									"value": "2024"
+								},
+								{
+									"key": "month",
+									"value": "7"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Yearly Statistics",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/dashboard/stats/yearly?year=2024",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"dashboard",
+								"stats",
+								"yearly"
+							],
+							"query": [
+								{
+									"key": "year",
+									"value": "2024"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Category Rules",
+			"item": [
+				{
+					"name": "Create Category Rule",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"pattern\": \"coffee|starbucks|cafe\",\n  \"category\": \"Food & Beverages\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/category-rules",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"category-rules"
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Category Rules",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/category-rules",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"category-rules"
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Health Monitoring",
+			"item": [
+				{
+					"name": "Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/actuator/health",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"actuator",
+								"health"
+							]
+						}
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "auth_token",
+			"value": "",
+			"type": "string"
+		}
+	]
+} 

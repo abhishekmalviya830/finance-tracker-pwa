@@ -1,0 +1,8 @@
+[30/07/24, 10:30] Bank: Rs.100 debited from A/c XX1234 on 30-07-24 at 10:30 AM. Avl Bal: Rs.5000.00
+[30/07/24, 11:00] Bank: Rs.50 credited to A/c XX1234 on 30-07-24 at 11:00 AM. Avl Bal: Rs.5050.00
+[30/07/24, 12:00] Bank: Rs.200 debited from A/c XX1234 on 30-07-24 at 12:00 PM. Avl Bal: Rs.4850.00
+[30/07/24, 13:30] Bank: Rs.75.50 debited from A/c XX1234 on 30-07-24 at 01:30 PM. Avl Bal: Rs.4774.50
+[30/07/24, 14:00] Bank: Rs.25.00 credited to A/c XX1234 on 30-07-24 at 02:00 PM. Avl Bal: Rs.4799.50
+[30/07/24, 15:15] Bank: Rs.150.75 debited from A/c XX1234 on 30-07-24 at 03:15 PM. Avl Bal: Rs.4648.75
+[30/07/24, 16:30] Bank: Rs.300.00 debited from A/c XX1234 on 30-07-24 at 04:30 PM. Avl Bal: Rs.4348.75
+[30/07/24, 17:00] Bank: Rs.500.00 credited to A/c XX1234 on 30-07-24 at 05:00 PM. Avl Bal: Rs.4848.75 
