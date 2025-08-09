@@ -80,33 +80,63 @@ class AuthService extends ChangeNotifier {
   // Login user
   Future<bool> login(String email, String password) async {
     try {
+      print('AuthService: Starting login for email: $email');
       final response = await _apiService.login(email, password);
+      print('AuthService: Login response received: $response');
+      print('AuthService: Response type: ${response.runtimeType}');
+      print('AuthService: Response keys: ${response.keys.toList()}');
       
       if (response['token'] != null) {
+        print('AuthService: Token found in response, processing login...');
         _authToken = response['token'];
+        print('AuthService: Token stored: $_authToken');
         
         // Create user object from response data
+        // Note: Backend only returns token, tokenType, userId, and email
+        // firstName and lastName are not included in the login response
         _currentUser = User(
           id: int.tryParse(response['userId']?.toString() ?? '0') ?? 0,
           email: response['email'] ?? email,
-          firstName: response['firstName'] ?? '',
-          lastName: response['lastName'] ?? '',
+          firstName: '', // Will be empty for login, can be updated later
+          lastName: '',  // Will be empty for login, can be updated later
           createdAt: DateTime.now(),
         );
         
+        print('AuthService: User object created: ${_currentUser?.toJson()}');
+        
         // Store authentication data
-        await _secureStorage.write(key: 'auth_token', value: _authToken);
-        await _secureStorage.write(key: 'user_data', value: jsonEncode(_currentUser!.toJson()));
+        try {
+          await _secureStorage.write(key: 'auth_token', value: _authToken);
+          print('AuthService: Token stored successfully');
+          
+          final userJson = _currentUser!.toJson();
+          print('AuthService: User JSON created: $userJson');
+          
+          final userJsonString = jsonEncode(userJson);
+          print('AuthService: User JSON encoded: $userJsonString');
+          
+          await _secureStorage.write(key: 'user_data', value: userJsonString);
+          print('AuthService: User data stored successfully');
+        } catch (storageError) {
+          print('AuthService: Storage error: $storageError');
+          // Continue with login even if storage fails
+        }
         
         // Notify listeners that user data has changed
         notifyListeners();
         
+        print('AuthService: Listeners notified');
+        print('AuthService: Login successful, user created: ${_currentUser?.toJson()}');
+        print('AuthService: Returning true');
         return true;
       }
       
+      print('AuthService: No token found in response, login failed');
+      print('AuthService: Response content: $response');
       return false;
     } catch (e) {
       print('Login error: $e');
+      print('Login error stack trace: ${StackTrace.current}');
       return false;
     }
   }
@@ -148,7 +178,9 @@ class AuthService extends ChangeNotifier {
         }
         return true;
       } catch (e) {
-        await logout();
+        print('Health check failed: $e');
+        // Don't logout on health check failure, just return false
+        // This allows the app to work even if backend is not available
         return false;
       }
     }

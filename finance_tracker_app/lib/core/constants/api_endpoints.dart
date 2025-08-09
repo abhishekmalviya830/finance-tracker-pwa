@@ -1,6 +1,6 @@
 class ApiEndpoints {
   // Base URL - Update this to your backend URL
-  static const String baseUrl = 'http://localhost:8080/api';
+  static const String baseUrl = 'http://192.168.1.4:8080/api';
   
   // Auth endpoints
   static const String signup = '/auth/signup';

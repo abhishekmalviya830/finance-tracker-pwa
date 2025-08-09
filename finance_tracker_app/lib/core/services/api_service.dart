@@ -23,7 +23,8 @@ class ApiService {
         'Accept': 'application/json',
       },
       validateStatus: (status) {
-        return status != null && status < 500; // Don't throw for 4xx errors
+        // Accept all status codes and handle them manually
+        return true;
       },
     ));
 
@@ -72,16 +73,22 @@ class ApiService {
   Future<Map<String, dynamic>> login(String email, String password) async {
     try {
       print('Attempting login for email: $email');
+      print('Request URL: ${ApiEndpoints.baseUrl}${ApiEndpoints.login}');
+      print('Request data: {"email": "$email", "password": "***"}');
+      
       final response = await _dio.post(ApiEndpoints.login, data: {
         'email': email,
         'password': password,
       });
       print('Login response status: ${response.statusCode}');
+      print('Login response headers: ${response.headers}');
       print('Login response: ${response.data}');
       
       if (response.statusCode == 200) {
         return response.data;
       } else {
+        print('Login failed with status: ${response.statusCode}');
+        print('Error response: ${response.data}');
         throw DioException(
           requestOptions: response.requestOptions,
           response: response,
@@ -195,9 +202,19 @@ class _AuthInterceptor extends Interceptor {
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
-    final token = await _storage.read(key: 'auth_token');
-    if (token != null) {
-      options.headers['Authorization'] = 'Bearer $token';
+    print('AuthInterceptor: Processing request to ${options.path}');
+    // Don't add Authorization header for auth endpoints
+    if (!options.path.contains('/auth/')) {
+      final token = await _storage.read(key: 'auth_token');
+      print('AuthInterceptor: Token from storage: ${token != null ? "FOUND" : "NOT FOUND"}');
+      if (token != null) {
+        options.headers['Authorization'] = 'Bearer $token';
+        print('AuthInterceptor: Added Authorization header with token: ${token.substring(0, 20)}...');
+      } else {
+        print('AuthInterceptor: No token found in storage for path: ${options.path}');
+      }
+    } else {
+      print('AuthInterceptor: Skipping Authorization header for auth endpoint: ${options.path}');
     }
     handler.next(options);
   }
